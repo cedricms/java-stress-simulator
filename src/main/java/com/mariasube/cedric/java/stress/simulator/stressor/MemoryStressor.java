@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MemoryStressor extends AbstractStressor {
 
-    private static final int MAX_OBJECTS = 100 * 1000 * 1000;
+    private static final int MAX_OBJECTS = 10 * 1000 * 1000;
 
     @Override
     public void stress() {
