@@ -2,7 +2,8 @@ package com.mariasube.cedric.java.stress.simulator;
 
 import com.mariasube.cedric.java.stress.simulator.stressor.AbstractStressor;
 import com.mariasube.cedric.java.stress.simulator.stressor.MemoryStressor;
-import com.mariasube.cedric.java.stress.simulator.stressor.ProcessStressor;
+import com.mariasube.cedric.java.stress.simulator.stressor.process.IterativeProcessStressor;
+import com.mariasube.cedric.java.stress.simulator.stressor.process.RecursiveProcessStressor;
 import com.mariasube.cedric.java.stress.simulator.stressor.Stressor;
 
 import java.util.LinkedList;
@@ -16,8 +17,11 @@ public class JavaStressSimulator {
         MemoryStressor memoryStressor = new MemoryStressor();
         stressors.add(memoryStressor);
 
-        ProcessStressor processStressor = new ProcessStressor();
-        stressors.add(processStressor);
+        RecursiveProcessStressor recursiveProcessStressor = new RecursiveProcessStressor();
+        stressors.add(recursiveProcessStressor);
+
+        IterativeProcessStressor iterativeProcessStressor = new IterativeProcessStressor();
+        stressors.add(iterativeProcessStressor);
 
         for (Stressor stressor : stressors) {
             AbstractStressor abstractStressor = (AbstractStressor) stressor;

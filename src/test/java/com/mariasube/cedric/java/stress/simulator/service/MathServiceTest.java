@@ -13,7 +13,7 @@ public class MathServiceTest {
         long rank = 0;
 
         // When
-        long result = mathService.calculateFibonacci(rank);
+        long result = mathService.calculateRecursiveFibonacci(rank);
 
         // Then
         assertThat(result).isEqualTo(0);
@@ -26,7 +26,7 @@ public class MathServiceTest {
         long rank = 1;
 
         // When
-        long result = mathService.calculateFibonacci(rank);
+        long result = mathService.calculateRecursiveFibonacci(rank);
 
         // Then
         assertThat(result).isEqualTo(1);
@@ -39,7 +39,7 @@ public class MathServiceTest {
         long rank = 2;
 
         // When
-        long result = mathService.calculateFibonacci(rank);
+        long result = mathService.calculateRecursiveFibonacci(rank);
 
         // Then
         assertThat(result).isEqualTo(1);
@@ -52,7 +52,7 @@ public class MathServiceTest {
         long rank = 3;
 
         // When
-        long result = mathService.calculateFibonacci(rank);
+        long result = mathService.calculateRecursiveFibonacci(rank);
 
         // Then
         assertThat(result).isEqualTo(2);
@@ -65,7 +65,7 @@ public class MathServiceTest {
         long rank = 4;
 
         // When
-        long result = mathService.calculateFibonacci(rank);
+        long result = mathService.calculateRecursiveFibonacci(rank);
 
         // Then
         assertThat(result).isEqualTo(3);
@@ -78,7 +78,7 @@ public class MathServiceTest {
         long rank = 5;
 
         // When
-        long result = mathService.calculateFibonacci(rank);
+        long result = mathService.calculateRecursiveFibonacci(rank);
 
         // Then
         assertThat(result).isEqualTo(5);
@@ -91,7 +91,7 @@ public class MathServiceTest {
         long rank = 6;
 
         // When
-        long result = mathService.calculateFibonacci(rank);
+        long result = mathService.calculateRecursiveFibonacci(rank);
 
         // Then
         assertThat(result).isEqualTo(8);
@@ -104,7 +104,7 @@ public class MathServiceTest {
         long rank = 7;
 
         // When
-        long result = mathService.calculateFibonacci(rank);
+        long result = mathService.calculateRecursiveFibonacci(rank);
 
         // Then
         assertThat(result).isEqualTo(13);
@@ -117,7 +117,124 @@ public class MathServiceTest {
         long rank = 8;
 
         // When
-        long result = mathService.calculateFibonacci(rank);
+        long result = mathService.calculateRecursiveFibonacci(rank);
+
+        // Then
+        assertThat(result).isEqualTo(21);
+    }
+
+    @Test
+    public void calculateIterativeFibonacciWhenRankZeroThenZero() {
+        // Given
+        MathService mathService = new MathService();
+        long rank = 0;
+
+        // When
+        long result = mathService.calculateIterativeFibonacci(rank);
+
+        // Then
+        assertThat(result).isEqualTo(0);
+    }
+
+    @Test
+    public void calculateIterativeFibonacciWhenRankOneThenOne() {
+        // Given
+        MathService mathService = new MathService();
+        long rank = 1;
+
+        // When
+        long result = mathService.calculateIterativeFibonacci(rank);
+
+        // Then
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    public void calculateIterativeFibonacciWhenRankTwoThenOne() {
+        // Given
+        MathService mathService = new MathService();
+        long rank = 2;
+
+        // When
+        long result = mathService.calculateIterativeFibonacci(rank);
+
+        // Then
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    public void calculateIterativeFibonacciWhenRankThreeThenTwo() {
+        // Given
+        MathService mathService = new MathService();
+        long rank = 3;
+
+        // When
+        long result = mathService.calculateIterativeFibonacci(rank);
+
+        // Then
+        assertThat(result).isEqualTo(2);
+    }
+
+    @Test
+    public void calculateIterativeFibonacciWhenRankFourThenThree() {
+        // Given
+        MathService mathService = new MathService();
+        long rank = 4;
+
+        // When
+        long result = mathService.calculateIterativeFibonacci(rank);
+
+        // Then
+        assertThat(result).isEqualTo(3);
+    }
+
+    @Test
+    public void calculateIterativeFibonacciWhenRankFiveThenFive() {
+        // Given
+        MathService mathService = new MathService();
+        long rank = 5;
+
+        // When
+        long result = mathService.calculateIterativeFibonacci(rank);
+
+        // Then
+        assertThat(result).isEqualTo(5);
+    }
+
+    @Test
+    public void calculateIterativeFibonacciWhenRankSixThenEight() {
+        // Given
+        MathService mathService = new MathService();
+        long rank = 6;
+
+        // When
+        long result = mathService.calculateIterativeFibonacci(rank);
+
+        // Then
+        assertThat(result).isEqualTo(8);
+    }
+
+    @Test
+    public void calculateIterativeFibonacciWhenRankSevenThenThirteen() {
+        // Given
+        MathService mathService = new MathService();
+        long rank = 7;
+
+        // When
+        long result = mathService.calculateIterativeFibonacci(rank);
+
+        // Then
+        assertThat(result).isEqualTo(13);
+    }
+
+    @Test
+    public void calculateIterativeFibonacciWhenRankEightThenTwentyOne() {
+        // Given
+        MathService mathService = new MathService();
+        long rank = 8;
+
+        // When
+        long result = mathService.calculateIterativeFibonacci(rank);
 
         // Then
         assertThat(result).isEqualTo(21);

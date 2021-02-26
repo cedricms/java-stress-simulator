@@ -4,7 +4,8 @@ A tool to simulate stressed Java applications.
 ## Stress scenarii
 
 * com.mariasube.cedric.java.stress.simulator.stressor.MemoryStressor : Simulate large numbers of objects in memory;
-* com.mariasube.cedric.java.stress.simulator.stressor.ProcessStressor : Simulate large numbers of calculations.
+* com.mariasube.cedric.java.stress.simulator.stressor.process.RecursiveProcessStressor : Simulate large numbers of recursive calculations.
+* com.mariasube.cedric.java.stress.simulator.stressor.process.IterativeProcessStressor : Simulate large numbers of iterative calculations.
 
 ## Run the scenarii
 
