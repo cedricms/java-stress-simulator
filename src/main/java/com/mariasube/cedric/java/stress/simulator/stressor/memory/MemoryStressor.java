@@ -1,7 +1,8 @@
-package com.mariasube.cedric.java.stress.simulator.stressor;
+package com.mariasube.cedric.java.stress.simulator.stressor.memory;
 
 import com.mariasube.cedric.java.stress.simulator.domain.vehicle.Vehicle;
 import com.mariasube.cedric.java.stress.simulator.domain.vehicle.VehicleFactory;
+import com.mariasube.cedric.java.stress.simulator.stressor.AbstractStressor;
 
 import java.util.LinkedList;
 import java.util.List;

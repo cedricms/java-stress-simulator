@@ -1,0 +1,38 @@
+[
+    {
+        "type": "Bike",
+        "numberOfWheels": 2
+    },
+    {
+        "type": "Bike",
+        "numberOfWheels": 2
+    },
+    {
+        "type": "Bike",
+        "numberOfWheels": 2
+    },
+    {
+        "type": "Bike",
+        "numberOfWheels": 2
+    },
+    {
+        "type": "Trike",
+        "numberOfWheels": 3
+    },
+    {
+        "type": "Trike",
+        "numberOfWheels": 3
+    },
+    {
+        "type": "Trike",
+        "numberOfWheels": 3
+    },
+    {
+        "type": "Car",
+        "numberOfWheels": 4
+    },
+    {
+        "type": "Car",
+        "numberOfWheels": 4
+    }
+]
