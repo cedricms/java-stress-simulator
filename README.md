@@ -23,3 +23,7 @@ Main Java class :
 It may be necessary to put the following profile classes in the "Memory settings" :
 
 ```com.mariasube.cedric.java.stress.simulator.**```
+
+## Presentations
+
+* [French presentation](presentations/presentation_fr.adoc).
