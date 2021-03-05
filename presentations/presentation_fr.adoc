@@ -47,16 +47,16 @@ image::../assets/img/jpg/GarbageCollection_eligible-objects.jpg[Objets éligible
 
 * Processus déclenché automatiquement par Java;
 * Processus coûteux. Tous les threads de l'application sont mis en pause pendant qu'il s'exécute;
-* Le proseccus est plus complexe que la détection de ressources non-utilisées et la libération de mémoire;
+* Le processus est plus complexe que la détection de ressources non-utilisées et la libération de mémoire;
 * Le fait de faire un `System.gc()` dans votre code "suggère" à la JVM d'appeler le GC, mais elle ne le fera pas obligatoirement tout de suite. Seulement quand elle sera prête. Et *attention*, il n'est pas recommandé d'appeler le GC. Vous risquez de perdre des données, et avoir des problèmes de performances.
 
 ### Java 1 à 7
 
 image::../assets/img/png/PermGen.png[Java 1 à 7, structure de la heap]
 
-### Java 8 et +
+### Java 8 et plus
 
-image::../assets/img/jpg/java-7-8-memory.jpg[Java 8 et +, structure de la heap]
+image::../assets/img/jpg/java-7-8-memory.jpg[Java 8 et plus, structure de la heap]
 
 ## Outils de profiling
 
@@ -68,11 +68,11 @@ image::../assets/img/jpg/java-7-8-memory.jpg[Java 8 et +, structure de la heap]
 *** Les classes chargées;
 *** Informations sur la JVM;
 *** Etat des MBeans.
-** *jhat - Java Heap Analysis Tool* : lance un serveur web qui permet d'analyser les heap dumps;
+** *jhat - Java Heap Analysis Tool* : lance un serveur web (http://localhost:7000) qui permet d'analyser les heap dumps;
 ** *jmap - Memory Map* : génère un heap dump d'un processus;
 ** *jstack - Stack Trace* : liste les traces des threads d'un processus Java donné;
 ** *jstat - Java Virtual Machine Statistics Monitoring Tool* : affiche des statistiques de performances pour une JVM outillée.;
-** *jstatd* : serveur RMI qui surveille la création et la terminaison de JVM outillées (intéressant pour connecter d'autres outils).
+** *jstatd* : serveur RMI qui surveille la création et la terminaison de JVM outillées (intéressant pour connecter d'autres outils). Port par défaut : 1099.
 * VisualVM;
 * Eclipse Memory Analyzer (MAT) : facilite l'analyse de heap dumps;
 * Telegraf/Grafana
@@ -86,6 +86,12 @@ image::../assets/img/jpg/java-7-8-memory.jpg[Java 8 et +, structure de la heap]
 
 ## VisualVM
 
+Outil graphic de profiling qui s'appuie sur les utlitaires de la JVM. Comme il communique à la JVM via jstatd, le port 1099 doit être ouvert.
+
+Pour l'installer, il suffit d'extraire une archive zippée.
+
+Anciennement JVisualVM, VisualVM est la version Open Source et gratuite.
+
 image::../assets/img/png/VisualVM_Thread_States.png[VisualVM thread states]
 
 * *Running* : le thread est toujours en cours d’exécution.
@@ -94,6 +100,8 @@ image::../assets/img/png/VisualVM_Thread_States.png[VisualVM thread states]
 * *Park* : les fils stationnés sont suspendus jusqu’à ce qu’ils reçoivent un permis. Le dépotage d’un thread se fait généralement en appelant la méthode unpark () sur l’object thread
 * *Monitor* : les threads attendent une condition pour devenir vrais pour reprendre l’exécution
 
+Démonstration avec le simulateurs d'application Java stréssée.
+
 ## Cas les plus courants :
 
 * Saturation de la mémoire;
@@ -101,4 +109,4 @@ image::../assets/img/png/VisualVM_Thread_States.png[VisualVM thread states]
 * Traitement long et consommateur de CPU;
 * Ressource centralisée appelée par plusieurs traitements;
 * Requête base de données non optimisée;
-* Utilisateur qui a accès à un traitement réservé, d'habitude, aux batches.
+* Utilisateur qui a accès via l'IHM à un traitement réservé, d'habitude, aux batches.
