@@ -8,7 +8,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import java.sql.*;
 
 @Slf4j
-public class DataBaseStressor extends AbstractStressor {
+public class DatabaseStressor extends AbstractStressor {
 
     private static final int MAX_REQUESTS = 10 * 1000 * 1000;
 

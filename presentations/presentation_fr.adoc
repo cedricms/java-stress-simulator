@@ -86,7 +86,7 @@ image::../assets/img/jpg/java-7-8-memory.jpg[Java 8 et plus, structure de la hea
 
 ## VisualVM
 
-Outil graphic de profiling qui s'appuie sur les utlitaires de la JVM. Comme il communique à la JVM via jstatd, le port 1099 doit être ouvert.
+Outil graphic de profiling qui s'appuie sur les utlitaires de la JVM. Comme il communique à la JVM via jstatd, via le port *1099*. Peut profiler à distance si ce port est ouvert.
 
 Pour l'installer, il suffit d'extraire une archive zippée.
 
@@ -99,6 +99,8 @@ image::../assets/img/png/VisualVM_Thread_States.png[VisualVM thread states]
 * *Wait* : le thread a été bloqué par un mutex ou une barrière et attend qu’un autre thread libère le verrou
 * *Park* : les fils stationnés sont suspendus jusqu’à ce qu’ils reçoivent un permis. Le dépotage d’un thread se fait généralement en appelant la méthode unpark () sur l’object thread
 * *Monitor* : les threads attendent une condition pour devenir vrais pour reprendre l’exécution
+
+cf. https://www.ipgirl.com/43664/visualvm-etats-de-threads.html
 
 Démonstration avec le simulateurs d'application Java stréssée.
 

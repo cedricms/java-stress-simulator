@@ -14,15 +14,22 @@ This code is **not** an example of code to "look up to", quite the contrary ;). 
 * com.mariasube.cedric.java.stress.simulator.stressor.process.RecursiveProcessStressor : Simulate large numbers of recursive calculations;
 * com.mariasube.cedric.java.stress.simulator.stressor.process.IterativeProcessStressor : Simulate large numbers of iterative calculations;
 * com.mariasube.cedric.java.stress.simulator.stressor.memory.centralize.CentralizedResourceStressor : Simulate multiple accesses to a same resource;
-* com.mariasube.cedric.java.stress.simulator.stressor.database.DataBaseStressor : Simulates calls to a database in order to monitor database requests.
+* com.mariasube.cedric.java.stress.simulator.stressor.database.DatabaseStressor : Simulates calls to a database in order to monitor database requests.
 
 ## Run the scenarii
+
+### Build simulator
+```mvnw clean compile assembly:single```
 
 ### Launch simulator
 
 Main Java class :
 
 ```com.mariasube.cedric.java.stress.simulator.JavaStressSimulator```
+
+Run JAR :
+
+```java -jar ./target/java-stress-simulator-1.0-SNAPSHOT-jar-with-dependencies.jar```
 
 ### VisualVM configuration
 
