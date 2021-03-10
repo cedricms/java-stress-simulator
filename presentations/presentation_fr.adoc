@@ -31,11 +31,11 @@ Pour chaque processus JVM qui tourne, il existe une occurence de heap.
 
 `StringBuilder builder = new StringBuilder();`
 
-* weak : ne survivera probablement pas au prochain processus de garbage collection. Peut être utilisé pour des stratégies de caching.
+* weak : ne survivra probablement pas au prochain processus de garbage collection. Peut être utilisé pour des stratégies de caching.
 
 `WeakReference<StringBuilder> reference = new WeakReference<>(new StringBuilder());`
 
-* soft : utilisé dans des scénarii sensible vis-à-vis de la mémoire. Cette mémoire sera collectée par le GC que si la mémoire disponible est basse (juste avant un OutOfMemoryError).
+* soft : utilisé dans des scénarii sensibles vis-à-vis de la mémoire. Cette mémoire sera collectée par le GC que si la mémoire disponible est basse (juste avant un OutOfMemoryError).
 
 `SoftReference<StringBuilder> reference = new SoftReference<>(new StringBuilder());`
 
@@ -102,7 +102,7 @@ image::../assets/img/png/VisualVM_Thread_States.png[VisualVM thread states]
 
 cf. https://www.ipgirl.com/43664/visualvm-etats-de-threads.html
 
-Démonstration avec le simulateurs d'application Java stréssée.
+Démonstration avec le simulateurs d'application Java stressée.
 
 ## Cas les plus courants :
 
@@ -125,19 +125,22 @@ Lancer avec le **même user** que celui qui a lancé le process :
 ### Thread dump
 
 Lancer avec le **même user** que celui qui a lancé le process :
-`kill -3 <pid>`
 
-*  [Fast Thread](https://fastthread.io/) en ligne, attention données envoyées sur Internet
-*  [JStack](https://jstack.review/#tda_1_dump) en ligne, aucune donnée envoyée sur Internet
-*  [Fast Thread](https://fastthread.io/) en ligne, attention do
+* `jstack -l <pid> > thread_dump.txt`
+* `kill -3 <pid>` (Linux / Unix)
+
+#### Outils
+*  https://fastthread.io/[Fast Thread] en ligne, attention données envoyées sur Internet
+*  https://jstack.review/#tda_1_dump[JStack] en ligne, aucune donnée envoyée sur Internet
 
 ## JVM : les bonnes pratiques
 
 ### Paramétrer la taille de la JVM
-* Utiliser le paramètre `-XmX` pour définir la taille maximale de la Heap.
-* Attention, plus la taille maximale est importante, plus le temps de pause lors d'un full GC est important !
-* Si vous ne le faites pas, vous risquez de déclencher l'OOM killer
-* Paramétrer la taille max du metaspace avec `XX:MetaspaceSize=` et `-XX:MaxMetaspaceSize=`
+* Utiliser les paramètres `-Xms` et `-XmX` pour définir la taille maximale de la Heap.
+** Attention, plus la taille maximale est importante, plus le temps de pause lors d'un full GC risque d'être important ! (dépend en pratique de la mémoire utilisée, pas allouée)
+* JDK 8+ : Paramétrer la taille max du metaspace avec `XX:MetaspaceSize` et `-XX:MaxMetaspaceSize`
+* JDK 7- : Paramétrer la taille max du permgen avec `XX:PermSize` et `-XX:MaxPermSize`
+* Sans taille max paramétrée, sachez que vous risquez de déclencher l'OOM killer
 
 ### Activation des logs du GC
 * L'option `-verbose:gc` permet d'activer les logs basiques
