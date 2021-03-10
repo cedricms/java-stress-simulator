@@ -142,6 +142,9 @@ Lancer avec le **même user** que celui qui a lancé le process :
 * JDK 7- : Paramétrer la taille max du permgen avec `XX:PermSize` et `-XX:MaxPermSize`
 * Sans taille max paramétrée, sachez que vous risquez de déclencher l'OOM killer
 
+
+image::../assets/img/jpg/permgen_to_metaspace.jpg[Options taille JVM]
+
 ### Activation des logs du GC
 * L'option `-verbose:gc` permet d'activer les logs basiques
 * L'option `-verbose:gc -XX:+PrintGCDetails` permet d'activer les logs détaillés (taille de la old et new generation, taille des objets promus, etc.)
