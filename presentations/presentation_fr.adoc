@@ -112,3 +112,36 @@ Démonstration avec le simulateurs d'application Java stréssée.
 * Ressource centralisée appelée par plusieurs traitements;
 * Requête base de données non optimisée;
 * Utilisateur qui a accès via l'IHM à un traitement réservé, d'habitude, aux batches.
+
+## Créer des dumps
+
+### Heap dump
+
+Lancer avec le **même user** que celui qui a lancé le process :
+`jcmd <pid> GC.heap_dump <file-path>/dump.hprof`
+
+* Peut être analysé avec les outils cités précédemment
+
+### Thread dump
+
+Lancer avec le **même user** que celui qui a lancé le process :
+`kill -3 <pid>`
+
+*  [Fast Thread](https://fastthread.io/) en ligne, attention données envoyées sur Internet
+*  [JStack](https://jstack.review/#tda_1_dump) en ligne, aucune donnée envoyée sur Internet
+*  [Fast Thread](https://fastthread.io/) en ligne, attention do
+
+## JVM : les bonnes pratiques
+
+### Paramétrer la taille de la JVM
+* Utiliser le paramètre `-XmX` pour définir la taille maximale de la Heap.
+* Attention, plus la taille maximale est importante, plus le temps de pause lors d'un full GC est important !
+* Si vous ne le faites pas, vous risquez de déclencher l'OOM killer
+* Paramétrer la taille max du metaspace avec `XX:MetaspaceSize=` et `-XX:MaxMetaspaceSize=`
+
+### Activation des logs du GC
+* L'option `-verbose:gc` permet d'activer les logs basiques
+* L'option `-verbose:gc -XX:+PrintGCDetails` permet d'activer les logs détaillés (taille de la old et new generation, taille des objets promus, etc.)
+
+### Création de heap dump en cas de crash
+* Renseigner `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=<file-or-dir-path>`
